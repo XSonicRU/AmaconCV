@@ -48,6 +48,7 @@ public class Amacon {
                     }
                 }
             });
+            l_thread.start();
             System.out.println("Listening... type anything to finish");
             s.nextLine();
             sc.close();
