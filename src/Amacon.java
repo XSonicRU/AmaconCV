@@ -9,13 +9,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Amacon {
     private static String buf;
 
     public static void main(String[] args) throws IOException, NativeHookException, AWTException {
+        Logger.getLogger(GlobalScreen.class.getPackage().getName()).setLevel(Level.OFF);
         System.out.println("Client or server?");
         Scanner s = new Scanner(System.in);
         if (s.nextLine().equalsIgnoreCase("server")) {
