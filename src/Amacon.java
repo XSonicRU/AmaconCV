@@ -38,6 +38,7 @@ public class Amacon {
                             buf = br.readLine();
                         } catch (IOException ignored) {
                         }
+                        System.out.println("Got " + buf);
                         if (buf.charAt(buf.length() - 1) == '1') {
                             r.keyPress(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
                             System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
@@ -75,13 +76,13 @@ public class Amacon {
                 @Override
                 public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
                     System.out.println(nativeKeyEvent.getKeyCode() + " pressed!");
-                    pw.write(nativeKeyEvent.getKeyCode() + ' ' + '1');
+                    pw.println(nativeKeyEvent.getKeyCode() + " " + '1');
                 }
 
                 @Override
                 public void nativeKeyReleased(NativeKeyEvent nativeKeyEvent) {
                     System.out.println(nativeKeyEvent.getKeyCode() + " released!");
-                    pw.write(nativeKeyEvent.getKeyCode() + ' ' + '0');
+                    pw.println(nativeKeyEvent.getKeyCode() + " " + '0');
                 }
             });
             System.out.println("Listening... type anything to finish");
