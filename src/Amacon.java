@@ -39,12 +39,16 @@ public class Amacon {
                         } catch (IOException ignored) {
                         }
                         System.out.println("Got " + buf);
-                        if (buf.charAt(buf.length() - 1) == '1') {
-                            r.keyPress(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
-                            System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
-                        } else {
-                            r.keyRelease(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
-                            System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
+                        try {
+                            if (buf.charAt(buf.length() - 1) == '1') {
+                                System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
+                                r.keyPress(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
+                            } else {
+                                System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
+                                r.keyRelease(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
+                            }
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("Invalid/Unmapped button!");
                         }
                     }
                 }
