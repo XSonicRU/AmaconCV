@@ -11,16 +11,16 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Amacon {
     private static String buf;
-    private static HashMap<Integer,Integer> po = new HashMap<>();
+    private static HashMap<Integer,Integer> buttonmap = new HashMap<>();
 
     public static void main(String[] args) throws IOException, NativeHookException, AWTException {
+        MapButtons();
         Logger.getLogger(GlobalScreen.class.getPackage().getName()).setLevel(Level.OFF);
         System.out.println("Client or server?");
         Scanner s = new Scanner(System.in);
@@ -46,10 +46,10 @@ public class Amacon {
                         try {
                             if (buf.charAt(buf.length() - 1) == '1') {
                                 System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ')));
-                                r.keyPress(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
+                                r.keyPress(buttonmap.get(Integer.parseInt(buf.substring(0, buf.indexOf(' ')))));
                             } else {
                                 System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ')));
-                                r.keyRelease(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
+                                r.keyRelease(buttonmap.get(Integer.parseInt(buf.substring(0, buf.indexOf(' ')))));
                             }
                         } catch (IllegalArgumentException e) {
                             System.out.println("Invalid/Unmapped button!");
@@ -124,6 +124,24 @@ public class Amacon {
         return ip;
     }
     private static void MapButtons(){
-        po.put(30, KeyEvent.VK_A);
+        buttonmap.put(16,KeyEvent.VK_Q);
+        buttonmap.put(17, KeyEvent.VK_W);
+        buttonmap.put(18, KeyEvent.VK_E);
+        buttonmap.put(19, KeyEvent.VK_R);
+        buttonmap.put(20, KeyEvent.VK_T);
+        buttonmap.put(21, KeyEvent.VK_Y);
+        buttonmap.put(22, KeyEvent.VK_U);
+        buttonmap.put(23, KeyEvent.VK_I);
+        buttonmap.put(24, KeyEvent.VK_O);
+        buttonmap.put(25,KeyEvent.VK_P);
+        buttonmap.put(30, KeyEvent.VK_A);
+        buttonmap.put(31, KeyEvent.VK_S);
+        buttonmap.put(32,KeyEvent.VK_D);
+        buttonmap.put(33,KeyEvent.VK_F);
+        buttonmap.put(34,KeyEvent.VK_G);
+        buttonmap.put(35,KeyEvent.VK_H);
+        buttonmap.put(36, KeyEvent.VK_J);
+        buttonmap.put(37, KeyEvent.VK_K);
+        buttonmap.put(38, KeyEvent.VK_L);
     }
 }
