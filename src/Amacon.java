@@ -41,10 +41,10 @@ public class Amacon {
                         System.out.println("Got " + buf);
                         try {
                             if (buf.charAt(buf.length() - 1) == '1') {
-                                System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
+                                System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ')));
                                 r.keyPress(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
                             } else {
-                                System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ') - 1));
+                                System.out.println("keypress, " + buf.substring(0, buf.indexOf(' ')));
                                 r.keyRelease(Integer.parseInt(buf.substring(0, buf.indexOf(' ') - 1)));
                             }
                         } catch (IllegalArgumentException e) {
