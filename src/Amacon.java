@@ -66,7 +66,7 @@ public class Amacon {
                 System.out.println("Can't connect, try again");
                 System.exit(0);
             }
-            PrintWriter pw = new PrintWriter(sc.getOutputStream());
+            PrintWriter pw = new PrintWriter(sc.getOutputStream(), true);
             GlobalScreen.addNativeKeyListener(new NativeKeyListener() {
                 @Override
                 public void nativeKeyTyped(NativeKeyEvent nativeKeyEvent) {
@@ -77,20 +77,17 @@ public class Amacon {
                 public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
                     System.out.println(nativeKeyEvent.getKeyCode() + " pressed!");
                     pw.println(nativeKeyEvent.getKeyCode() + " " + '1');
-                    pw.flush();
                 }
 
                 @Override
                 public void nativeKeyReleased(NativeKeyEvent nativeKeyEvent) {
                     System.out.println(nativeKeyEvent.getKeyCode() + " released!");
                     pw.println(nativeKeyEvent.getKeyCode() + " " + '0');
-                    pw.flush();
                 }
             });
             System.out.println("Listening... type anything to finish");
             s.nextLine();
             sc.close();
-            pw.flush();
             pw.close();
             GlobalScreen.unregisterNativeHook();
             System.exit(0);
