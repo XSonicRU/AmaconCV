@@ -66,7 +66,7 @@ public class Amacon {
                 System.out.println("Can't connect, try again");
                 System.exit(0);
             }
-            PrintWriter pw = new PrintWriter(sc.getOutputStream());
+            PrintWriter pw = new PrintWriter(sc.getOutputStream(),true);
             GlobalScreen.addNativeKeyListener(new NativeKeyListener() {
                 @Override
                 public void nativeKeyTyped(NativeKeyEvent nativeKeyEvent) {
@@ -89,6 +89,7 @@ public class Amacon {
             s.nextLine();
             sc.close();
             pw.flush();
+            pw.close();
             GlobalScreen.unregisterNativeHook();
             System.exit(0);
         }
@@ -109,7 +110,8 @@ public class Amacon {
                 URL myip = new URL("http://checkip.amazonaws.com");
                 BufferedReader in = new BufferedReader(new InputStreamReader(myip.openStream()));
                 ip = in.readLine();
-            } catch (Exception ignored) {
+            } catch (IOException ex) {
+                System.out.println("It seems you have no internet connection");
             }
         }
         return ip;
