@@ -4,17 +4,21 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Amacon {
     private static String buf;
+    private static HashMap<Integer,Integer> po = new HashMap<>();
 
     public static void main(String[] args) throws IOException, NativeHookException, AWTException {
         Logger.getLogger(GlobalScreen.class.getPackage().getName()).setLevel(Level.OFF);
@@ -118,5 +122,8 @@ public class Amacon {
             }
         }
         return ip;
+    }
+    private static void MapButtons(){
+        po.put(30, KeyEvent.VK_A);
     }
 }
