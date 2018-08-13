@@ -40,6 +40,10 @@ public class Amacon {
                     while (true) {
                         try {
                             buf = br.readLine();
+                            if(buf == null){
+                                System.out.println("Disconnected!");
+                                System.exit(0);
+                            }
                         } catch (IOException ignored) {
                         }
                         System.out.println("Got " + buf);
@@ -53,6 +57,8 @@ public class Amacon {
                             }
                         } catch (IllegalArgumentException e) {
                             System.out.println("Invalid/Unmapped button!");
+                        }catch (NullPointerException e){
+                            System.out.println("Shit happened");
                         }
                     }
                 }
