@@ -124,6 +124,8 @@ public class Amacon {
         return ip;
     }
     private static void MapButtons(){
+        buttonmap.put(1, KeyEvent.VK_ESCAPE);
+        buttonmap.put(15,KeyEvent.VK_TAB);
         buttonmap.put(16,KeyEvent.VK_Q);
         buttonmap.put(17, KeyEvent.VK_W);
         buttonmap.put(18, KeyEvent.VK_E);
@@ -134,6 +136,7 @@ public class Amacon {
         buttonmap.put(23, KeyEvent.VK_I);
         buttonmap.put(24, KeyEvent.VK_O);
         buttonmap.put(25,KeyEvent.VK_P);
+        buttonmap.put(28,KeyEvent.VK_ENTER);
         buttonmap.put(30, KeyEvent.VK_A);
         buttonmap.put(31, KeyEvent.VK_S);
         buttonmap.put(32,KeyEvent.VK_D);
@@ -143,5 +146,14 @@ public class Amacon {
         buttonmap.put(36, KeyEvent.VK_J);
         buttonmap.put(37, KeyEvent.VK_K);
         buttonmap.put(38, KeyEvent.VK_L);
+        buttonmap.put(42,KeyEvent.VK_SHIFT);
+        buttonmap.put(44,KeyEvent.VK_Z);
+        buttonmap.put(45,KeyEvent.VK_X);
+        buttonmap.put(46,KeyEvent.VK_C);
+        buttonmap.put(47,KeyEvent.VK_V);
+        buttonmap.put(48,KeyEvent.VK_B);
+        buttonmap.put(49,KeyEvent.VK_N);
+        buttonmap.put(50,KeyEvent.VK_M);
+
     }
 }
