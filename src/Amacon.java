@@ -109,7 +109,7 @@ public class Amacon {
                 socket.connect(InetAddress.getByName("8.8.8.8"), 10002);
                 ip = socket.getLocalAddress().getHostAddress();
             } catch (Exception e) {
-                System.out.println("Error!");
+                System.out.println("Error getting IP address!");
                 System.exit(0);
             }
         } else {
@@ -119,12 +119,13 @@ public class Amacon {
                 ip = in.readLine();
             } catch (IOException ex) {
                 System.out.println("It seems you have no internet connection");
+                System.exit(0);
             }
         }
         return ip;
     }
     private static void MapButtons(){
-        buttonmap.put(1, KeyEvent.VK_ESCAPE);
+        //buttonmap.put(1, KeyEvent.VK_ESCAPE);
         buttonmap.put(15,KeyEvent.VK_TAB);
         buttonmap.put(16,KeyEvent.VK_Q);
         buttonmap.put(17, KeyEvent.VK_W);
