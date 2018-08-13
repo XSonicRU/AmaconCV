@@ -132,6 +132,10 @@ public class Amacon {
     }
     private static void MapButtons(){
         //buttonmap.put(1, KeyEvent.VK_ESCAPE);
+        buttonmap.put(57416,KeyEvent.VK_UP);
+        buttonmap.put(57419,KeyEvent.VK_LEFT);
+        buttonmap.put(57424,KeyEvent.VK_DOWN);
+        buttonmap.put(57421,KeyEvent.VK_RIGHT);
         buttonmap.put(15,KeyEvent.VK_TAB);
         buttonmap.put(16,KeyEvent.VK_Q);
         buttonmap.put(17, KeyEvent.VK_W);
